@@ -1,6 +1,7 @@
+# Stores file information
 class FileStats:
 
-    symbols = []
+    symbols = {}
 
     def __init__(self, file_name):
         self.file_name = file_name
@@ -10,7 +11,7 @@ class FileStats:
         for char in self.file_name:
             try:
                 self.symbols[ord(char)] += 1
-            except NameError:
+            except KeyError:
                 self.symbols[ord(char)] = 1
 
     def get_counted_symbols(self):
