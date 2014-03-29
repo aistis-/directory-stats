@@ -1,9 +1,8 @@
 # Stores file information
-class FileStats:
-
-    symbols = {}
+class FileStats(object):
 
     def __init__(self, file_name):
+        self.symbols = {}
         self.file_name = file_name
         self.analyze_name()
 
@@ -15,4 +14,9 @@ class FileStats:
                 self.symbols[ord(char)] = 1
 
     def get_counted_symbols(self):
-        return self.symbols
+        result = self.file_name
+
+        for symbol, times in self.symbols.items():
+            result += '\n\t' + chr(symbol) + ' ' + str(times)
+
+        return result

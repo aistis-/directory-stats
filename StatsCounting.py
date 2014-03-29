@@ -16,9 +16,9 @@ for i, file in enumerate(files):
 string_to_file = ''
 
 for file in files:
-    string_to_file += file.get_counted_symbols()
+    string_to_file += file.get_counted_symbols() + '\n\n'
 
-with open(sys.argv[2], 'w') as output:
+with open(sys.argv[2], 'w+') as output:
     output.write(string_to_file)
 
 
