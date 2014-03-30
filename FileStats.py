@@ -30,19 +30,19 @@ class FileStats(object):
                     all_symbols[ord(char)] = 1
 
         # count words in file content
-            for word in open(self.file_name).read().split():
-                if word:
-                   # for a file
-                    try:
-                        self.words[word.lower()] += 1
-                    except KeyError:
-                        self.words[word.lower()] = 1
+        for word in open(self.file_name).read().split():
+            if word:
+               # for a file
+                try:
+                    self.words[word.lower()] += 1
+                except KeyError:
+                    self.words[word.lower()] = 1
 
-                    # for all files together
-                    try:
-                        all_words[word.lower()] += 1
-                    except KeyError:
-                        all_words[word.lower()] = 1
+                # for all files together
+                try:
+                    all_words[word.lower()] += 1
+                except KeyError:
+                    all_words[word.lower()] = 1
 
     def get_counted_content(self):
         result = self.file_name
@@ -66,7 +66,7 @@ class FileStats(object):
         for symbol, times in all_symbols.items():
             result += '\n\t' + chr(symbol) + ' ' + str(times)
 
-        result + '\n\nAll words in all files'
+        result += '\n\nAll words in all files'
 
         for word, times in all_words.items():
             result += '\n\t' + word + ' ' + str(times)
