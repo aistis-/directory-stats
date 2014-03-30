@@ -12,9 +12,9 @@ files_stats = [FileStats.FileStats(file) for file in files]
 output_string = ''
 
 for file in files_stats:
-    output_string += file.get_counted_symbols() + '\n\n'
+    output_string += file.get_counted_content() + '\n\n'
 
-output_string = FileStats.FileStats.get_all_counted_symbols() + '\n\n' + \
+output_string = FileStats.FileStats.get_all_counted_content() + '\n\n' + \
     output_string
 
 with open(sys.argv[2], 'w+') as output:
