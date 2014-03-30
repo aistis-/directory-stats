@@ -47,8 +47,15 @@ class FileStats(object):
     def get_counted_content(self):
         result = self.file_name
 
+        result += '\n\t' + 'Symbols in file'
+
         for symbol, times in self.symbols.items():
-            result += '\n\t' + chr(symbol) + ' ' + str(times)
+            result += '\n\t\t' + chr(symbol) + ' ' + str(times)
+
+        result += '\n\n\t' + 'Words in file'
+
+        for word, times in self.words.items():
+            result += '\n\t\t' + word + ' ' + str(times)
 
         return result
 
@@ -58,5 +65,10 @@ class FileStats(object):
 
         for symbol, times in all_symbols.items():
             result += '\n\t' + chr(symbol) + ' ' + str(times)
+
+        result + '\n\nAll words in all files'
+
+        for word, times in all_words.items():
+            result += '\n\t' + word + ' ' + str(times)
 
         return result
