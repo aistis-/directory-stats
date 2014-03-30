@@ -9,13 +9,13 @@ files = [f for f in listdir(directory) if isfile(join(directory, f))]
 
 files_stats = [FileStats.FileStats(file) for file in files]
 
-string_to_file = ''
+output_string = ''
 
 for file in files_stats:
-    string_to_file += file.get_counted_symbols() + '\n\n'
+    output_string += file.get_counted_symbols() + '\n\n'
 
-string_to_file = FileStats.FileStats.get_all_counted_symbols() + '\n\n' + \
-    string_to_file
+output_string = FileStats.FileStats.get_all_counted_symbols() + '\n\n' + \
+    output_string
 
 with open(sys.argv[2], 'w+') as output:
-    output.write(string_to_file)
+    output.write(output_string)
