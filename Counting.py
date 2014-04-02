@@ -7,7 +7,7 @@ directory = sys.argv[1]
 
 files = [f for f in listdir(directory) if isfile(join(directory, f))]
 
-files_stats = [FileStats.FileStats(file) for file in files]
+files_stats = [FileStats.FileStats(directory + '/' + file) for file in files]
 
 output_string = ''
 

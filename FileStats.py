@@ -5,16 +5,16 @@ all_words = {}
 # Stores file information
 class FileStats(object):
 
-    def __init__(self, file_name):
+    def __init__(self, file_path):
         self.symbols = {}
         self.words = {}
-        self.file_name = file_name
+        self.file_path = file_path
         self.analyze_content()
 
     def analyze_content(self):
 
         # count symbols in file content
-        for char in open(self.file_name).read():
+        for char in open(self.file_path).read():
 
             if not ord(char) in [9, 10, 32]:
                 # for a file
@@ -30,7 +30,7 @@ class FileStats(object):
                     all_symbols[ord(char)] = 1
 
         # count words in file content
-        for word in open(self.file_name).read().split():
+        for word in open(self.file_path).read().split():
             if word:
                # for a file
                 try:
@@ -45,7 +45,7 @@ class FileStats(object):
                     all_words[word.lower()] = 1
 
     def get_counted_content(self):
-        result = self.file_name
+        result = self.file_path
 
         result += '\n\t' + 'Symbols in file'
 
